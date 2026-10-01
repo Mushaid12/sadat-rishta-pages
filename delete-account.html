@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete My Account — Sadat Rishta</title>
+<style>
+  :root {
+    color-scheme: light;
+    --black: #0B0B0B;
+    --gold: #C9A227;
+    --gold-muted: #D8BE72;
+    --ivory: #FAF7F0;
+    --ink: #171717;
+    --muted: #6B6B6B;
+    --border: #E7E1D3;
+    --error: #B3261E;
+    --success: #2E7D32;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ivory); color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: #8a6d1a; }
+  a:hover { color: var(--gold); }
+
+  .topbar {
+    background: var(--black); color: #fff;
+    padding: 18px 24px; display: flex; align-items: center; gap: 14px;
+  }
+  .mark {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--black); border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.5px;
+  }
+  .brand-name { font-weight: 800; font-size: 1.05rem; line-height: 1.2; }
+  .brand-tag { color: var(--gold-muted); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; }
+
+  main.page { max-width: 560px; margin: 0 auto; padding: 40px 20px 64px; }
+  .doc-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 36px clamp(20px, 5vw, 44px) 40px; box-shadow: 0 1px 2px rgba(11,11,11,0.04);
+  }
+  h1 { font-size: clamp(1.3rem, 4vw, 1.5rem); margin: 0 0 6px; letter-spacing: -0.01em; }
+  .lead { color: var(--muted); margin-bottom: 24px; font-size: 0.95rem; }
+
+  label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+  input[type=email], input[type=text] {
+    width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 1rem; margin-bottom: 14px; font-family: inherit;
+  }
+  input[type=email]:focus, input[type=text]:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+  button {
+    width: 100%; padding: 13px; border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 800; cursor: pointer; font-family: inherit;
+  }
+  button.primary { background: linear-gradient(135deg, #EAC65A, var(--gold)); color: var(--black); }
+  button.danger { background: var(--error); color: #fff; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .msg { margin-top: 14px; font-size: 0.88rem; }
+  .msg.error { color: var(--error); }
+  .msg.success { color: var(--success); }
+  .hidden { display: none; }
+  .warning {
+    background: rgba(179,38,30,0.07); border: 1px solid rgba(179,38,30,0.28);
+    border-radius: 10px; padding: 14px 16px; font-size: 0.88rem; color: var(--error); margin-bottom: 18px;
+  }
+  ul.plain { font-size: 0.88rem; color: #333; padding-left: 20px; margin: 0 0 14px; }
+
+  footer.page-footer {
+    max-width: 560px; margin: 28px auto 0; padding: 0 20px 40px;
+    color: var(--muted); font-size: 0.8rem; text-align: center;
+  }
+  footer.page-footer a { color: #8a6d1a; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="mark">SR</div>
+    <div>
+      <div class="brand-name">Sadat Rishta</div>
+      <div class="brand-tag">Account Deletion</div>
+    </div>
+  </div>
+
+  <main class="page">
+    <div class="doc-card">
+      <h1>Delete My Account</h1>
+      <p class="lead">Permanently delete your Sadat Rishta account and all associated data, without opening the app.</p>
+
+      <!-- Step 1: request a sign-in link -->
+      <div id="step-email">
+        <label for="email">Your account email</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+        <button class="primary" id="send-link-btn" onclick="sendLoginLink()">Send me a login link</button>
+        <div id="email-msg" class="msg"></div>
+      </div>
+
+      <!-- Step 2: confirm deletion (shown once the login link's token is present) -->
+      <div id="step-confirm" class="hidden">
+        <div class="warning">This permanently deletes your account. This cannot be undone.</div>
+        <p style="font-size:0.88rem;color:#444;margin-top:0;">This deletes:</p>
+        <ul class="plain">
+          <li>Your Rishta profile, photos, and contact details</li>
+          <li>Your CNIC, family tree, and property documents</li>
+          <li>Your chats, message requests, and notification settings</li>
+          <li>Your account itself</li>
+        </ul>
+        <label for="confirm-word">Type DELETE to confirm</label>
+        <input type="text" id="confirm-word" oninput="onConfirmInput()" autocomplete="off">
+        <button class="danger" id="delete-btn" disabled onclick="deleteAccount()">Permanently Delete My Account</button>
+        <div id="confirm-msg" class="msg"></div>
+      </div>
+
+      <!-- Step 3: done -->
+      <div id="step-done" class="hidden">
+        <div class="msg success" style="font-size:1rem;">Your account and all associated data have been permanently deleted.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    Sadat Foundation — Sadat Rishta · <a href="./privacy-policy.html">Privacy Policy</a>
+  </footer>
+
+<script>
+  // Same anon/publishable key shipped inside the compiled app
+  // (lib/core/config/supabase_config.dart) — safe to embed client-side;
+  // it has no access beyond what the database's RLS policies grant.
+  const SUPABASE_URL = 'https://lsvuaexwtwraibwyqjfu.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_smHhDvx7Bb7GpBOdmgIJbA_rTpl8GiQ';
+
+  let accessToken = null;
+
+  function showStep(id) {
+    ['step-email', 'step-confirm', 'step-done'].forEach((s) => {
+      document.getElementById(s).classList.toggle('hidden', s !== id);
+    });
+  }
+
+  // Supabase's magic-link email redirects back here with the session in
+  // the URL fragment (#access_token=...&refresh_token=...) rather than a
+  // query string, by design (so it's never sent to a server in a log) —
+  // this page reads it directly instead of calling a "verify OTP" endpoint.
+  function tokenFromUrlFragment() {
+    if (!window.location.hash) return null;
+    const params = new URLSearchParams(window.location.hash.substring(1));
+    return params.get('access_token');
+  }
+
+  async function sendLoginLink() {
+    const email = document.getElementById('email').value.trim();
+    const msg = document.getElementById('email-msg');
+    const btn = document.getElementById('send-link-btn');
+    if (!email) {
+      msg.textContent = 'Please enter your email address.';
+      msg.className = 'msg error';
+      return;
+    }
+    btn.disabled = true;
+    msg.textContent = 'Sending...';
+    msg.className = 'msg';
+    try {
+      const redirectTo = window.location.origin + window.location.pathname;
+      const res = await fetch(
+        `${SUPABASE_URL}/auth/v1/otp?redirect_to=${encodeURIComponent(redirectTo)}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY },
+          body: JSON.stringify({ email, create_user: false }),
+        },
+      );
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.msg || body.error_description || 'Could not send the login link.');
+      }
+      msg.textContent = 'Check your email for a login link, then open it on this device to continue.';
+      msg.className = 'msg success';
+    } catch (e) {
+      msg.textContent = e.message || 'Something went wrong. Please try again.';
+      msg.className = 'msg error';
+      btn.disabled = false;
+    }
+  }
+
+  function onConfirmInput() {
+    const value = document.getElementById('confirm-word').value.trim();
+    document.getElementById('delete-btn').disabled = value !== 'DELETE';
+  }
+
+  async function deleteAccount() {
+    const btn = document.getElementById('delete-btn');
+    const msg = document.getElementById('confirm-msg');
+    btn.disabled = true;
+    msg.textContent = 'Deleting...';
+    msg.className = 'msg';
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/delete-account`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${accessToken}`, apikey: SUPABASE_ANON_KEY },
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || 'Could not delete your account. Please try again.');
+      showStep('step-done');
+    } catch (e) {
+      msg.textContent = e.message || 'Something went wrong. Please try again.';
+      msg.className = 'msg error';
+      btn.disabled = document.getElementById('confirm-word').value.trim() !== 'DELETE';
+    }
+  }
+
+  // Entry point
+  accessToken = tokenFromUrlFragment();
+  if (accessToken) {
+    history.replaceState(null, '', window.location.pathname);
+    showStep('step-confirm');
+  } else {
+    showStep('step-email');
+  }
+</script>
+</body>
+</html>
