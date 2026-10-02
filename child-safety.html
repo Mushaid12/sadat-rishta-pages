@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Child Safety Standards — Sadat Rishta</title>
+<style>
+  :root {
+    color-scheme: light;
+    --black: #0B0B0B;
+    --surface: #151515;
+    --gold: #C9A227;
+    --gold-muted: #D8BE72;
+    --gold-tint: #F6EEDA;
+    --ivory: #FAF7F0;
+    --ink: #171717;
+    --muted: #6B6B6B;
+    --border: #E7E1D3;
+    --error: #B3261E;
+    --success: #2E7D32;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ivory); color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: #8a6d1a; }
+  a:hover { color: var(--gold); }
+
+  .topbar {
+    background: var(--black); color: #fff;
+    padding: 18px 24px; display: flex; align-items: center; gap: 14px;
+  }
+  .mark {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--black); border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.5px;
+  }
+  .brand-name { font-weight: 800; font-size: 1.05rem; line-height: 1.2; }
+  .brand-tag { color: var(--gold-muted); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; }
+
+  main.page { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  .doc-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 36px clamp(20px, 5vw, 48px) 44px; box-shadow: 0 1px 2px rgba(11,11,11,0.04);
+  }
+  h1 { font-size: clamp(1.4rem, 4vw, 1.75rem); margin: 0 0 6px; letter-spacing: -0.01em; }
+  .updated { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+
+  .toc {
+    background: var(--gold-tint); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px; margin: 20px 0 32px;
+  }
+  .toc-title { font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #8a6d1a; margin-bottom: 10px; }
+  .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 24px; }
+  .toc li { font-size: 0.88rem; margin-bottom: 6px; break-inside: avoid; }
+  .toc a { color: var(--ink); text-decoration: none; }
+  .toc a:hover { color: #8a6d1a; text-decoration: underline; }
+
+  section.policy-section { padding-top: 26px; margin-top: 26px; border-top: 1px solid var(--border); scroll-margin-top: 20px; }
+  section.policy-section:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  h2 {
+    font-size: 1.02rem; margin: 0 0 10px; display: flex; align-items: center; gap: 10px;
+  }
+  h2 .num {
+    flex: none; width: 24px; height: 24px; border-radius: 6px; background: var(--black);
+    color: var(--gold); font-size: 0.72rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  p { margin: 0 0 14px; white-space: pre-line; color: #333; font-size: 0.94rem; }
+
+  ul.plain { font-size: 0.88rem; color: #333; padding-left: 20px; margin: 0 0 14px; }
+
+  footer.page-footer {
+    max-width: 760px; margin: 28px auto 0; padding: 0 20px 40px;
+    color: var(--muted); font-size: 0.8rem; text-align: center;
+  }
+  footer.page-footer a { color: #8a6d1a; }
+
+  @media (max-width: 480px) {
+    .toc ol { columns: 1; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="mark">SR</div>
+    <div>
+      <div class="brand-name">Sadat Rishta</div>
+      <div class="brand-tag">Child Safety Standards</div>
+    </div>
+  </div>
+
+  <main class="page">
+    <div class="doc-card">
+      <h1>Sadat Rishta — Child Safety Standards</h1>
+      <div class="updated">Last updated: October 2, 2026</div>
+
+      <nav class="toc" aria-label="Table of contents">
+        <div class="toc-title">On this page</div>
+        <ol>
+          <li><a href="#our-commitment">Our commitment</a></li>
+          <li><a href="#who-can-use">Who can use the app</a></li>
+          <li><a href="#prohibited">What is prohibited</a></li>
+          <li><a href="#how-to-report">How to report a concern</a></li>
+          <li><a href="#how-we-respond">How we respond</a></li>
+          <li><a href="#prevention">Preventing abuse</a></li>
+          <li><a href="#compliance">Compliance</a></li>
+          <li><a href="#contact">Child safety contact</a></li>
+        </ol>
+      </nav>
+
+      <section class="policy-section" id="our-commitment">
+        <h2><span class="num">1</span>Our commitment</h2>
+        <p>Sadat Rishta, published by Sadat Foundation, has zero tolerance for child sexual abuse and exploitation (CSAE) and child sexual abuse material (CSAM). Any content, behaviour, or account that sexualises, grooms, exploits, endangers, or abuses a child is prohibited, and we act on it immediately.</p>
+      </section>
+
+      <section class="policy-section" id="who-can-use">
+        <h2><span class="num">2</span>Who can use the app</h2>
+        <p>Sadat Rishta is a community and matchmaking (Rishta) app for adults. You must be at least 18 years old to create a Rishta profile, and the app does not allow a profile with a date of birth under 18. Accounts we find to belong to a minor, or that are used to contact or seek out minors, are removed.</p>
+      </section>
+
+      <section class="policy-section" id="prohibited">
+        <h2><span class="num">3</span>What is prohibited</h2>
+        <ul class="plain">
+          <li>Sharing, requesting, or linking to any sexual or sexualised content involving a person under 18 (CSAM), including drawn, generated, or edited images.</li>
+          <li>Grooming: building a relationship with a child, or with someone you believe is a child, for sexual purposes.</li>
+          <li>Sextortion, or threatening to share intimate images of anyone.</li>
+          <li>Arranging, promoting, or facilitating a marriage or relationship involving a person under 18.</li>
+          <li>Trafficking, or any commercial sexual exploitation of a child.</li>
+          <li>Any other content or behaviour that sexualises or endangers children.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="how-to-report">
+        <h2><span class="num">4</span>How to report a concern</h2>
+        <p>In the app: open the person&#39;s Rishta profile and tap "Report", or open your chat with them and tap the flag icon at the top. Choose "Child safety concern", add any details, and submit. Reports are confidential, and the reported person is not told who reported them.</p>
+        <p>By email: write to <a href="mailto:mshahintrective@gmail.com">mshahintrective@gmail.com</a> with "Child Safety" in the subject line.</p>
+        <p>If a child is in immediate danger, contact your local police first. In Pakistan you can also call the Madadgar helpline 1098, or report to the FIA Cyber Crime Wing at 1991. Outside Pakistan, you can report CSAM to NCMEC&#39;s CyberTipline (<a href="https://report.cybertip.org">report.cybertip.org</a>) or to your national hotline listed at <a href="https://www.inhope.org">inhope.org</a>.</p>
+      </section>
+
+      <section class="policy-section" id="how-we-respond">
+        <h2><span class="num">5</span>How we respond</h2>
+        <p>Child safety reports are reviewed before all other reports, and we aim to review them within 24 hours. When a report is confirmed we:</p>
+        <ul class="plain">
+          <li>remove the content and permanently ban the account, along with any linked accounts;</li>
+          <li>keep the report and relevant records so we can assist investigators;</li>
+          <li>report apparent CSAM to the National Center for Missing &amp; Exploited Children (NCMEC) and to the relevant regional and national authorities, including Pakistan&#39;s FIA Cyber Crime Wing, as required by law.</li>
+        </ul>
+        <p>Reports are kept even after the reported account is deleted, so they remain available to law enforcement.</p>
+      </section>
+
+      <section class="policy-section" id="prevention">
+        <h2><span class="num">6</span>Preventing abuse</h2>
+        <ul class="plain">
+          <li>Rishta profiles are restricted to adults aged 18 and over.</li>
+          <li>No one can message you unless you accept their message request first, and each conversation has a message limit.</li>
+          <li>Every profile and every chat has a "Report" option.</li>
+          <li>Sensitive documents and photos are private by default and are shown only according to the owner&#39;s own visibility settings.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="compliance">
+        <h2><span class="num">7</span>Compliance</h2>
+        <p>Sadat Rishta complies with applicable child safety laws, including the Prevention of Electronic Crimes Act 2016 (Pakistan), and with Google Play&#39;s child safety standards policy. We cooperate fully with law enforcement requests related to child safety.</p>
+      </section>
+
+      <section class="policy-section" id="contact">
+        <h2><span class="num">8</span>Child safety contact</h2>
+        <p>Our designated child safety contact can answer questions about our CSAM prevention practices and compliance: <a href="mailto:mshahintrective@gmail.com">mshahintrective@gmail.com</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    Sadat Foundation — Sadat Rishta · <a href="./privacy-policy.html">Privacy Policy</a> · <a href="./delete-account.html">Delete my account</a>
+  </footer>
+</body>
+</html>
